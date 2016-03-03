@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>School Track</title>
+<title>Univer Classroom</title>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.min.css">
@@ -44,7 +44,7 @@
                 <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                     <div id="loginBox" class="login-panel panel panel-default">
                         <div class="panel-heading">
-                            Welcome to SchoolTrack
+                            Welcome to Univer Classroom
                         </div>
                         <div class="panel-body">
                             <form id="loginForm" action="j_spring_security_check" method="post">
@@ -120,7 +120,7 @@
       	</div>
 	</div>
    	<div class="footer">
-        Copyright 2015 Ciweb Tech LLC
+        Copyright 2016 Fidel IT Services LLP
     </div>        
 </body>
 </html>

@@ -48,33 +48,33 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/schooltrack"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="admin"></property>
+		<property name="password" value="root"></property>
 	</bean>
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="gtsDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/gts"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="admin"></property>
+		<property name="password" value="root"></property>
 	</bean>
 	<bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
 		id="gtsSessionFactory">
 		<property name="dataSource" ref="gtsDataSource"></property>
 	    <property name="annotatedClasses">
 			<list>
-				<value>com.fidelit.model.Employee</value>
-				<value>com.fidelit.model.UserRole</value>
-				<value>com.fidelit.model.Clients</value>
-				<value>com.fidelit.model.empLeaves</value>
-				<value>com.fidelit.model.empLeavesTaken</value>
-				<value>com.fidelit.model.EmployeeProject</value>
-				<value>com.fidelit.model.EmployeeSkill</value>
-				<value>com.fidelit.model.Holidays</value>
-				<value>com.fidelit.model.LeavesApplied</value>
-				<value>com.fidelit.model.Project</value>
-				<value>com.fidelit.model.Skill</value>
-				<value>com.fidelit.model.SuperVisor</value>
-				<value>com.fidelit.model.Tasks</value>
+				<!-- <value>com.fidelit.model.Employee</value> -->
+				<!-- <value>com.fidelit.model.UserRole</value> -->
+				<!-- <value>com.fidelit.model.Clients</value> -->
+				<!-- <value>com.fidelit.model.empLeaves</value> -->
+				<!-- <value>com.fidelit.model.empLeavesTaken</value> -->
+				<!-- <value>com.fidelit.model.EmployeeProject</value> -->
+				<!-- <value>com.fidelit.model.EmployeeSkill</value> -->
+				<!-- <value>com.fidelit.model.Holidays</value> -->
+				<!-- <value>com.fidelit.model.LeavesApplied</value> -->
+				<!-- <value>com.fidelit.model.Project</value> -->
+				<!-- <value>com.fidelit.model.Skill</value> -->
+				<!-- <value>com.fidelit.model.SuperVisor</value> -->
+				<!-- <value>com.fidelit.model.Tasks</value> -->
 			    <value>com.fidelit.model.Account</value>
 			    <value>com.fidelit.model.School</value>
 			    <value>com.fidelit.model.SchoolAdmin</value>
@@ -90,7 +90,10 @@
 			    <value>com.fidelit.model.ParentToStudent</value>
 			    <value>com.fidelit.model.Camera</value>
 			    <value>com.fidelit.model.Video</value>
-			      <value>com.fidelit.model.ChildProgress</value>
+			    <value>com.fidelit.model.ChildProgress</value>
+			    <value>com.fidelit.model.Exam</value>
+			    <value>com.fidelit.model.ExamToSubject</value>	
+			    <value>com.fidelit.model.StudentToExam</value>	
 			</list>
 		</property>  
 		<property name="hibernateProperties">
@@ -107,7 +110,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 	    <property name="annotatedClasses">
 			<list>
-				<value>com.fidelit.model.Employee</value>
+			<!-- 	<value>com.fidelit.model.Employee</value>
 				<value>com.fidelit.model.UserRole</value>
 				<value>com.fidelit.model.Clients</value>
 				<value>com.fidelit.model.empLeaves</value>
@@ -119,7 +122,7 @@
 				<value>com.fidelit.model.Project</value>
 				<value>com.fidelit.model.Skill</value>
 				<value>com.fidelit.model.SuperVisor</value>
-				<value>com.fidelit.model.Tasks</value>
+				<value>com.fidelit.model.Tasks</value> -->
 			    <value>com.fidelit.model.Account</value>
 			    <value>com.fidelit.model.School</value>
 			    <value>com.fidelit.model.SchoolAdmin</value>
@@ -135,7 +138,10 @@
 			    <value>com.fidelit.model.ParentToStudent</value>
 			    <value>com.fidelit.model.Camera</value>
 			    <value>com.fidelit.model.Video</value>
-			    <value>com.fidelit.model.ChildProgress</value>		   
+			    <value>com.fidelit.model.ChildProgress</value>		
+			    <value>com.fidelit.model.Exam</value>
+			    <value>com.fidelit.model.ExamToSubject</value>
+			    <value>com.fidelit.model.StudentToExam</value>		   
 			</list>
 		</property>  
 		<property name="hibernateProperties">

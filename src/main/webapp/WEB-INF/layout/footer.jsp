@@ -1,1 +1,1 @@
-<p class="panel-footer" style="text-align:center"> Copyright 2015 Ciweb Tech LLC </p>
+<p class="panel-footer" style="text-align:center"> Copyright 2016 Fidel IT Services LLP </p>

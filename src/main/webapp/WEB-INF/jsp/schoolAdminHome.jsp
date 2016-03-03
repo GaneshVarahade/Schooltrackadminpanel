@@ -46,7 +46,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-3">
+            <div class="col-md-2 col-md-offset-1 col-sm-3">
             	<a href="${pageContext.request.contextPath}/schoolAdmin/parentList" class="menu-link">
                     <div class="menu-block m-block2">
                         <div class="menu-icon"><i class="fa fa-users"></i></div>
@@ -55,7 +55,7 @@
                 </a>
             </div>
           
-             <div class="col-md-2 col-md-offset-4 col-sm-3">
+             <div class="col-md-2 col-sm-3">
             	<a href="${pageContext.request.contextPath}/extintor/extintorList" class="menu-link">
                     <div class="menu-block m-block4">
                         <div class="menu-icon"><i class="fa fa-fire-extinguisher"></i></div>

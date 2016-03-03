@@ -64,4 +64,7 @@
    
    <bean id="videoServiceImpl" class="com.fidelit.implementation.VideoServiceImpl" scope="prototype">
    </bean>
+   
+   <bean id="teacherServiceImpl" class="com.fidelit.implementation.TeacherServiceImpl" scope="prototype">
+   </bean>
 </beans>

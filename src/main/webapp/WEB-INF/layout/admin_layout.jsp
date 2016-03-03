@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>School Track</title>
+<title>Univer Classroom</title>
 <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/images/favicon.png"/>
 <!-- Bootstrap -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
@@ -123,7 +123,7 @@ function showProfile(){
        	</div>
         
         <div class="footer">
-        	Copyright 2015 Ciweb Tech LLC
+        	Copyright 2016 Fidel IT Services LLP
       	</div>
         
         

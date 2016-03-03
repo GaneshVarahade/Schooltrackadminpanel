@@ -60,6 +60,8 @@ public class SchoolAdmin implements Serializable  {
 	
 	private List<Route> route;
     
+	private List<Exam> exam;
+	
 	private List<ChildProgress> cp;
     
 	
@@ -230,6 +232,18 @@ public class SchoolAdmin implements Serializable  {
 
 	public void setUsed(Boolean isUsed) {
 		this.isUsed = isUsed;
+	}
+
+	@Required
+	@ManyToMany(cascade=CascadeType.ALL)
+	@NotFound(action=NotFoundAction.IGNORE)
+	@JoinColumn(name="examId",nullable = true, insertable = true, updatable = true)
+	public List<Exam> getExam() {
+		return exam;
+	}
+
+	public void setExam(List<Exam> exam) {
+		this.exam = exam;
 	}	
 	
 }
