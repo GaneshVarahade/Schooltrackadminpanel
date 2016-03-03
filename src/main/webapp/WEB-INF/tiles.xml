@@ -97,7 +97,6 @@
 
       <definition name="teacher_home" extends="teacher.definition">  
         <put-attribute name="title" value="Admin" />   
-       
         <put-attribute name="body" value="/WEB-INF/jsp/teacher_home.jsp" />  
     </definition>
     
@@ -111,6 +110,11 @@
         <put-attribute name="title" value="Admin" />   
        
         <put-attribute name="body" value="/WEB-INF/jsp/AddSubjects.jsp" />  
+    </definition>
+   
+   <definition name="seeResults" extends="teacher.definition">  
+        <put-attribute name="title" value="Admin" />   
+        <put-attribute name="body" value="/WEB-INF/jsp/seeResults.jsp" />  
     </definition>
    
    <definition name="StudentMarks" extends="teacher.definition">  

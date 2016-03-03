@@ -48,7 +48,7 @@ public class TeacherController {
 	public String userHome(ModelMap model) {
 
 		model.addAttribute("homeActive", "homeActive");
-		return "schoolAdminHome";
+		return "teacher_home";
 	}
 
 	@RequestMapping(value = "/ChildList")
@@ -277,9 +277,12 @@ public class TeacherController {
 		SchoolAdmin student = schoolAdminService.getSchoolAdminId(studentID);
 		StudentToExam ste = new StudentToExam();
 		Exam exam = teacherService.getExamByExamId(examID);
-		StudentToExam studentToExam = teacherService.setStudentToExam(ste, ets, student, exam);
-		model.addAttribute("studentToExam", studentToExam);
-		request.setAttribute("studentToExamId", studentToExam.getId());
+		boolean isUnique = teacherService.checkUniqueExamForStudent(examID, studentID);
+		if(isUnique){
+			StudentToExam studentToExam = teacherService.setStudentToExam(ste, ets, student, exam);
+			model.addAttribute("studentToExam", studentToExam);
+			request.setAttribute("studentToExamId", studentToExam.getId());
+		}
 		return "StudentMarksEnter";
 	}
 	
@@ -355,5 +358,13 @@ public class TeacherController {
 		return "ChildList";
 	}
 	
+	
+	@RequestMapping(value = "/seeResults")
+	public String seeResults(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+		int studentId = Integer.parseInt(request.getParameter("studentId"));
+		List<StudentToExam> ste = teacherService.getStudentToExamByStudentId(studentId);
+		model.addAttribute("StudentToExam", ste);
+		return "seeResults";
+	}
 }
 

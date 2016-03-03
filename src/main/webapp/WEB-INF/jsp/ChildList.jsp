@@ -8,11 +8,14 @@
     <script src="http://formvalidation.io/vendor/formvalidation/js/formValidation.min.js"></script>
 <script src="http://formvalidation.io/vendor/formvalidation/js/framework/bootstrap.min.js"></script>
 <script type="text/javascript">
- function addMarks(id){
-	
+function addMarks(id){
 	 var id=id;
-		window.location.href="${pageContext.request.contextPath}/Teacher/addStudentMarks?studentId="+id;
-	
+		window.location.href="${pageContext.request.contextPath}/Teacher/addStudentMarks?studentId="+id;	
+}
+ 
+function seeResults(id){
+	 var id=id;
+		window.location.href="${pageContext.request.contextPath}/Teacher/seeResults?studentId="+id;	
 }
 </script>
 
@@ -47,7 +50,7 @@
                               	<th width="10%">Name</th>
                               	<th width="10%">City</th>
                                 <th width="10%">Action</th>       
-                                              
+                                <th width="10%">Action</th>              
                             </tr>
                           </thead>
                           <tbody>          
@@ -59,7 +62,7 @@
                                 <td>${schoolAdmin.city}</td>
                     
                      		  <td><button type="submit" class="btn btn-default btn-sm" onClick="addMarks('${schoolAdmin.id}');"><i class="fa fa-pencil-square-o"></i> Add Result</button></td>
-                              
+                              <td><button type="submit" class="btn btn-default btn-sm" onClick="seeResults('${schoolAdmin.id}');"><i class="fa fa-pencil-square-o"></i> See Result</button></td>
                               </tr>
     						</c:forEach>
                       	</tbody>
@@ -76,7 +79,7 @@
 		<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Add Bus Stop</h4>
+				<h4 class="modal-title">Add Exam</h4>
 			  </div>
               <form id="formAdd" action="${pageContext.request.contextPath}/Teacher/addMarks" method="post">
 			  <div class="modal-body">              	

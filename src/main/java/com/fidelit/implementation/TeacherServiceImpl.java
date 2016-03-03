@@ -179,6 +179,47 @@ public class TeacherServiceImpl implements TeacherService {
 		session.saveOrUpdate(exam);		
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false) 
+	@Override
+	public List<StudentToExam> getStudentToExamByStudentId(int studentId) {
+		Session session;
+		List<StudentToExam>  ste = new ArrayList<StudentToExam>();
+		try{
+			session = sessionFactory.getCurrentSession();
+			String hql = "from StudentToExam where student.id = :studentId";
+			Query query = session.createQuery(hql);
+			query.setParameter("studentId", studentId);
+			ste = query.list();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return ste;
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Override
+	public boolean checkUniqueExamForStudent(int examId, int studentId) {
+		Session session;
+		boolean flag = true;
+		StudentToExam ste = new StudentToExam();
+		try{
+		session = sessionFactory.getCurrentSession();
+		String hql = "from StudentToExam where student.id = :studentId and exam.examId = :examId";
+		Query query = session.createQuery(hql);
+		query.setParameter("studentId", studentId);
+		query.setParameter("examId", examId);
+		ste=(StudentToExam) query.uniqueResult();;
+		if(ste != null){
+			flag = false;
+		}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
 	 
 	
 }

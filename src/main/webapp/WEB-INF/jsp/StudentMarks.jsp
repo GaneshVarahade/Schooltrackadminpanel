@@ -11,7 +11,6 @@
 function getStudentId(){
 
 	var studentId = '${studentId}';
-	alert(studentId);
 	$("#studentId").val(studentId);
 }
 </script>
@@ -41,7 +40,7 @@ function getStudentId(){
 		>
 		<input type="hidden" name="studentId" id="studentId" value="">
 		<div class="form-group">
-			<label for="examName" class="col-sm-3 control-label">&#42; Exam Name</label>
+			<label for="examName" class="col-sm-8">&#42; Exam Name</label>
 			<div class="col-sm-8">
 				<select name="examName" id="examName"
 					class="form-control">

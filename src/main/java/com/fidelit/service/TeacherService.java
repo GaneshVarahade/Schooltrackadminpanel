@@ -16,5 +16,7 @@ public interface TeacherService {
 	ExamToSubject getExamToSubjectByExamId(int examId);
 	StudentToExam setStudentToExam(StudentToExam ste,ExamToSubject ets,SchoolAdmin student,Exam exam);
 	StudentToExam getStudentToExamById(int Id);
+	List<StudentToExam> getStudentToExamByStudentId(int studentId);
 	void updateStudentToExam(StudentToExam exam);
+	boolean checkUniqueExamForStudent(int examId,int studentId);
 }
