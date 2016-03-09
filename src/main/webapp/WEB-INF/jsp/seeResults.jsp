@@ -9,6 +9,8 @@
 <title>Result</title>
 </head>
 <body>
+<c:set var="count" value="0" scope="page" />
+
 <c:forEach var="ste" items="${StudentToExam}">
 	<div class="form-group">
 		<h3>${ste.exam.examName} </h3>
@@ -25,6 +27,7 @@
           			</thead>
           			<tbody>
           				<c:if test = "${not empty ste.subject1}">
+          				
           				<tr>
           				<td>${ste.subject1}</td>
           				<td>${ste.subject1min}</td>
@@ -33,6 +36,7 @@
           				</tr>
           				</c:if>
           				<c:if test = "${not empty ste.subject2}">
+          	
           				<tr>
           				<td>${ste.subject2}</td>
           				<td>${ste.subject2min}</td>
@@ -41,6 +45,7 @@
           				</tr>
           				</c:if>
           				<c:if test = "${not empty ste.subject3}">
+          				
           				<tr>
           				<td>${ste.subject3}</td>
           				<td>${ste.subject3min}</td>
@@ -49,6 +54,7 @@
           				</tr>
           				</c:if>
           				<c:if test = "${not empty ste.subject4}">
+          				
           				<tr>
           				<td>${ste.subject4}</td>
           				<td>${ste.subject4min}</td>
@@ -57,6 +63,7 @@
           				</tr>
           				</c:if>
           				<c:if test = "${not empty ste.subject5}">
+          				
           				<tr>
           				<td>${ste.subject5}</td>
           				<td>${ste.subject5min}</td>
@@ -65,6 +72,7 @@
           				</tr>
           				</c:if>
           				<c:if test = "${not empty ste.subject6}">
+          				
           				<tr>
           				<td>${ste.subject6}</td>
           				<td>${ste.subject6min}</td>
@@ -73,6 +81,7 @@
           				</tr>
           				</c:if>
           				<c:if test = "${not empty ste.subject7}">
+          				
           				<tr>
           				<td>${ste.subject7}</td>
           				<td>${ste.subject7min}</td>
@@ -104,11 +113,26 @@
           				<td>${ste.subject10obtained}</td>
           				</tr>
           				</c:if>
+          				<tr>
+          				<td><b>Total Marks</b></td>
+          				<td><b>${minTotal[count]}</b></td>
+          				<td><b>${maxTotal[count]}</b></td>
+          				<td><b>${obtainedMarks[count]}</b></td>
+          				</tr>
+          				
+          				<tr>
+          				<td><b>Total Percentage</b></td>
+          				<td><b>Out Of</b></td>
+          				<td><b>${maxTotal[count]}</b></td>
+          				<td><b>${(obtainedMarks[count]*100)/maxTotal[count]}</b></td>
+          				</tr>
          		    </tbody>
+         		    <c:set var="count" value="${count + 1}" scope="page"/>
           		</table>
           		</div>
 			</div>
 	</div>
 </c:forEach>
+
 </body>
 </html>

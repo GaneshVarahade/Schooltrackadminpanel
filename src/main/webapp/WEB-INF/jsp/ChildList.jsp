@@ -17,6 +17,12 @@ function seeResults(id){
 	 var id=id;
 		window.location.href="${pageContext.request.contextPath}/Teacher/seeResults?studentId="+id;	
 }
+$(function() {
+    $( "#dateFrom" ).datepicker();
+});
+$(function() {
+    $( "#dateTo" ).datepicker();
+});
 </script>
 
 

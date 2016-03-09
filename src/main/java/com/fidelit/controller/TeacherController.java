@@ -362,7 +362,28 @@ public class TeacherController {
 	@RequestMapping(value = "/seeResults")
 	public String seeResults(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
 		int studentId = Integer.parseInt(request.getParameter("studentId"));
+		int []minTotal = new int[10];
+		int []maxTotal = new int[10];
+		int []obtainedMarks= new int[10];
 		List<StudentToExam> ste = teacherService.getStudentToExamByStudentId(studentId);
+		int i=0;
+		int []count= new int[10];
+		for (StudentToExam sTOe : ste){
+			minTotal[i]=sTOe.getSubject1min()+sTOe.getSubject2min()+sTOe.getSubject3min()+sTOe.getSubject4min()+sTOe.getSubject5min()+sTOe.getSubject6min()+sTOe.getSubject7min()+
+					sTOe.getSubject8min()+sTOe.getSubject9min()+sTOe.getSubject10min();
+			maxTotal[i]=sTOe.getSubject1max()+sTOe.getSubject2max()+sTOe.getSubject3max()+sTOe.getSubject4max()+sTOe.getSubject5max()+sTOe.getSubject6max()+sTOe.getSubject7max()+
+					sTOe.getSubject8max()+sTOe.getSubject9max()+sTOe.getSubject10max();
+			obtainedMarks[i]= sTOe.getSubject1obtained()+sTOe.getSubject2obtained()+sTOe.getSubject3obtained()+sTOe.getSubject4obtained()+sTOe.getSubject5obtained()+sTOe.getSubject6obtained()+sTOe.getSubject7obtained()+
+					sTOe.getSubject8obtained()+sTOe.getSubject9obtained()+sTOe.getSubject10obtained();
+			i++;
+		}
+		for(int j=0;j<10;j++){
+			count[j]=i;
+		}
+		model.addAttribute("counts", count);
+		model.addAttribute("obtainedMarks", obtainedMarks);
+		model.addAttribute("maxTotal", maxTotal);
+		model.addAttribute("minTotal", minTotal);
 		model.addAttribute("StudentToExam", ste);
 		return "seeResults";
 	}
