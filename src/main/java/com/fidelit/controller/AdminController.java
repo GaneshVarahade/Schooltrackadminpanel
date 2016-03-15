@@ -82,6 +82,7 @@ public class AdminController {
 	return "page404";
 	  
   }
+  
   @ResponseBody
   @RequestMapping("/profile")
   public void profile(HttpServletRequest request,HttpServletResponse response){

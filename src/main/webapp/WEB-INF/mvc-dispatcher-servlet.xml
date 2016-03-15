@@ -94,6 +94,7 @@
 			    <value>com.fidelit.model.Exam</value>
 			    <value>com.fidelit.model.ExamToSubject</value>	
 			    <value>com.fidelit.model.StudentToExam</value>	
+			    
 			</list>
 		</property>  
 		<property name="hibernateProperties">
@@ -141,7 +142,8 @@
 			    <value>com.fidelit.model.ChildProgress</value>		
 			    <value>com.fidelit.model.Exam</value>
 			    <value>com.fidelit.model.ExamToSubject</value>
-			    <value>com.fidelit.model.StudentToExam</value>		   
+			    <value>com.fidelit.model.StudentToExam</value>	
+			    <value>com.fidelit.model.Blog</value>		   
 			</list>
 		</property>  
 		<property name="hibernateProperties">

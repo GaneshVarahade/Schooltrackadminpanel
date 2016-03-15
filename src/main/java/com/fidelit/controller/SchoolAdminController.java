@@ -139,7 +139,7 @@ public class SchoolAdminController {
 		model.addAttribute("schoolAdminList", schoolAdminList);
 		SchoolAdmin currentUser = (SchoolAdmin) session.getAttribute("currentUser");
 		System.out.println("currentUser"+currentUser.getAccountId());
-		List<School> schoolList=schoolService.allSchoolList(currentUser.getAccountId());
+		List<School> schoolList=schoolService.allSchoolList(currentUser.getUsername());
 		System.out.println("schoolList:"+schoolList.toString());
 		for (School school : schoolList) {
 			System.out.println("schoolList:"+school.toString());
@@ -256,7 +256,7 @@ public class SchoolAdminController {
 		model.addAttribute("schoolAdminList", schoolAdminList);
 		SchoolAdmin currentUser = (SchoolAdmin) session.getAttribute("currentUser");
 		System.out.println("currentUser"+currentUser.getAccountId());
-		List<School> schoolList=schoolService.allSchoolList(currentUser.getAccountId());
+		List<School> schoolList=schoolService.allSchoolList(currentUser.getUsername());
 		System.out.println("schoolList:"+schoolList.toString());
 		for (School school : schoolList) {
 			System.out.println("schoolList:"+school.toString());
@@ -293,6 +293,9 @@ public class SchoolAdminController {
 			schoolAdmin.setAccountId(userName);
 			schoolAdmin.setAccountType("Student");
 			model.addAttribute("success", "success");
+			School school = schoolAdmin.getSchool();
+			System.out.println("School Id:"+school.getId());
+			schoolAdmin.setSchool(school);
 			schoolAdminService.addSchoolAdmin(schoolAdmin);
 			int studentId1= schoolAdminService.getLastSchoolAdminId();
 			
@@ -368,7 +371,7 @@ public class SchoolAdminController {
 		List<SchoolAdmin> schoolAdminList= schoolAdminService.getAllStudentList(userName);
 		model.addAttribute("schoolAdminList", schoolAdminList);
 		SchoolAdmin currentUser = (SchoolAdmin) session.getAttribute("currentUser");
-		List<School> schoolList=schoolService.allSchoolList(currentUser.getAccountId());
+		List<School> schoolList=schoolService.allSchoolList(currentUser.getUsername());
 		
 		
 		SchoolAdmin currentUserr = (SchoolAdmin) session.getAttribute("currentUser");

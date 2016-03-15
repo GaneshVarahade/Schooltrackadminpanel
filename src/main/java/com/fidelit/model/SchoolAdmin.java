@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -30,6 +31,11 @@ import org.springframework.beans.factory.annotation.Required;
 @Table(name="schoolAdmin")
 public class SchoolAdmin implements Serializable  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Integer id;
 	
 	private String name;
@@ -64,6 +70,7 @@ public class SchoolAdmin implements Serializable  {
 	
 	private List<ChildProgress> cp;
     
+	private String studentClass;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -152,10 +159,13 @@ public class SchoolAdmin implements Serializable  {
 		this.city = city;
 	}
 
-	@Required
+	/*@Required
 	@OneToOne(cascade=CascadeType.ALL)
 	@NotFound(action=NotFoundAction.IGNORE)
-	@JoinColumn(name="schoolId",nullable = true, insertable = true, updatable = true)
+	@JoinColumn(name="schoolId",nullable = true, insertable = true, updatable = true)*/
+
+	@ManyToOne
+	@JoinColumn(name = "schoolId", nullable = false)
 	public School getSchool() {
 		return school;
 	}
@@ -244,6 +254,15 @@ public class SchoolAdmin implements Serializable  {
 
 	public void setExam(List<Exam> exam) {
 		this.exam = exam;
+	}
+
+	@Column(name="class")
+	public String getStudentClass() {
+		return studentClass;
+	}
+
+	public void setStudentClass(String studentClass) {
+		this.studentClass = studentClass;
 	}	
 	
 }

@@ -2,6 +2,7 @@ package com.fidelit.service;
 
 import java.util.List;
 
+import com.fidelit.model.Blog;
 import com.fidelit.model.Exam;
 import com.fidelit.model.ExamToSubject;
 import com.fidelit.model.SchoolAdmin;
@@ -19,4 +20,5 @@ public interface TeacherService {
 	List<StudentToExam> getStudentToExamByStudentId(int studentId);
 	void updateStudentToExam(StudentToExam exam);
 	boolean checkUniqueExamForStudent(int examId,int studentId);
+	void addBlog(Blog blog);
 }

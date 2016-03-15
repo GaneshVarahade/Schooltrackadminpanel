@@ -83,7 +83,7 @@ public class SchoolServiceImpl implements SchoolService {
 	@Override
 	public List<School> allSchoolList(String userName) {
 		
-		
+		System.out.println("username in school service:"+userName);
 		List<School> schoolList = new ArrayList<School>();
 		 Session session;
 			try {

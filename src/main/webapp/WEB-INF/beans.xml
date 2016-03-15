@@ -67,4 +67,10 @@
    
    <bean id="teacherServiceImpl" class="com.fidelit.implementation.TeacherServiceImpl" scope="prototype">
    </bean>
+   
+   <bean id="studentServiceImpl" class="com.fidelit.implementation.StudentServiceImpl" scope="prototype">
+   </bean>
+   
+   <bean id="parentServiceImpl" class="com.fidelit.implementation.ParentServiceImpl" scope="prototype">
+   </bean>
 </beans>

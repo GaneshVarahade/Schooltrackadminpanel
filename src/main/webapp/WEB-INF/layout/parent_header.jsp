@@ -1,4 +1,4 @@
-
+<%-- 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -25,4 +25,19 @@
       </ul> 
     </div>
   </div>
-</nav>
+</nav> --%>
+
+<ul class="nav navbar-nav">
+	<li id="homeActive" ><a href="${pageContext.request.contextPath}/parent/home">Home</a></li>
+	<li id="childListActive" ><a href="${pageContext.request.contextPath}/parent/ChildList">ChildList</a></li>
+	
+</ul>
+<script>
+$(function(){
+	if("${homeActive}" == 'homeActive'){
+		$("#homeActive").addClass("active");
+	}else if("${childListActive}" == 'childListActive'){
+		$("#childListActive").addClass("active");
+	}
+})
+</script>

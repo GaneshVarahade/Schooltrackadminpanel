@@ -94,6 +94,12 @@
         <put-attribute name="body" value="/WEB-INF/jsp/user_management.jsp" />  
     </definition>
 
+ <definition name="seeBlogs" extends="child.definition">  
+        <put-attribute name="title" value="Hello Spring MVC" />  
+        <put-attribute name="body" value="/WEB-INF/jsp/seeBlogs.jsp" />  
+    </definition>
+
+
 
       <definition name="teacher_home" extends="teacher.definition">  
         <put-attribute name="title" value="Admin" />   
@@ -104,6 +110,11 @@
         <put-attribute name="title" value="Admin" />   
        
         <put-attribute name="body" value="/WEB-INF/jsp/ChildList.jsp" />  
+    </definition>
+   
+   <definition name="AddBlog" extends="teacher.definition">  
+        <put-attribute name="title" value="Admin" />   
+        <put-attribute name="body" value="/WEB-INF/jsp/AddBlog.jsp" />  
     </definition>
    
     <definition name="AddSubjects" extends="teacher.definition">  
@@ -136,9 +147,25 @@
     
     <definition name="parent_home" extends="parent.definition">  
         <put-attribute name="title" value="Admin" />   
-       
+      
         <put-attribute name="body" value="/WEB-INF/jsp/parent_home.jsp" />  
     </definition>
+    
+    <definition name="ParentToChildList" extends="parent.definition">  
+        <put-attribute name="title" value="Admin" />   
+        <put-attribute name="body" value="/WEB-INF/jsp/ParentToChildList.jsp" />  
+    </definition>
+    
+    <definition name="seeResultsForParent" extends="parent.definition">  
+        <put-attribute name="title" value="Admin" />   
+        <put-attribute name="body" value="/WEB-INF/jsp/seeResultsForParent.jsp" />  
+    </definition>
+    
+    <definition name="seeBlogsForParent" extends="parent.definition">  
+        <put-attribute name="title" value="Admin" />   
+        <put-attribute name="body" value="/WEB-INF/jsp/seeBlogsForParent.jsp" />  
+    </definition>
+    
     <definition name="admin_home" extends="admin.definition">  
         <put-attribute name="title" value="Admin" />   
        

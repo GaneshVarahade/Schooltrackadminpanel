@@ -1,5 +1,7 @@
 package com.fidelit.model;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +21,8 @@ public class Blog {
 	private String msg;
 	
 	private String studentClass;
+	
+	private Date blogDate;
 	
     private SchoolAdmin schoolAdmin;
     
@@ -53,5 +57,11 @@ public class Blog {
 	
 	public void setStudentClass(String studentClass) {
 		this.studentClass = studentClass;
+	}
+	public Date getBlogDate() {
+		return blogDate;
+	}
+	public void setBlogDate(Date blogDate) {
+		this.blogDate = blogDate;
 	}
 }

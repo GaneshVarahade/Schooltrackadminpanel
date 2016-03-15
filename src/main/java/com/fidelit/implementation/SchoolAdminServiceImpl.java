@@ -39,7 +39,7 @@ public class SchoolAdminServiceImpl implements SchoolAdminService{
 			try {	
 				
 				session = sessionFactory.getCurrentSession();
-				session.save(schoolAdmin);
+				session.saveOrUpdate(schoolAdmin);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -415,6 +415,18 @@ public class SchoolAdminServiceImpl implements SchoolAdminService{
 		return schoolAdminList;
 		
 
+	}
+
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Override
+	public SchoolAdmin getSchoolAdminByUsername(String userName) {
+		 SchoolAdmin teacher = null;
+	        Session session=sessionFactory.getCurrentSession();
+	        String sql="select * from schoolAdmin where username ='"+userName+"'";
+	        SQLQuery query=session.createSQLQuery(sql).addEntity(SchoolAdmin.class);
+	        Object result = query.uniqueResult();
+	        teacher = (SchoolAdmin)result;
+	        return teacher;
 	}
     
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fidelit.model.Blog;
 import com.fidelit.model.Bus;
 import com.fidelit.model.Exam;
 import com.fidelit.model.ExamToSubject;
@@ -218,6 +219,13 @@ public class TeacherServiceImpl implements TeacherService {
 			e.printStackTrace();
 		}
 		return flag;
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Override
+	public void addBlog(Blog blog) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(blog);
 	}
 
 	 

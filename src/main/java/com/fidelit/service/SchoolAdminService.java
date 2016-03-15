@@ -36,5 +36,7 @@ public interface SchoolAdminService {
     List<Integer> getStduentFromParentToStudent(Integer parentId);
     List<ParentToStudent> getAllParentToStudentList(); 
     List<SchoolAdmin> getStudentList(String userName);
+    
+    SchoolAdmin getSchoolAdminByUsername(String userName);
    
 }

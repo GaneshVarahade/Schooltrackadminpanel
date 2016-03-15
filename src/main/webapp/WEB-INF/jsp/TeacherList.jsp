@@ -690,12 +690,12 @@ $(document).ready(function() {
                     </div>
                     
                   	<div class="form-group">
-                        <form:label path="school.schoolName" class="col-sm-3 control-label">&#42; School Name</form:label>
+                        <form:label path="school.id" class="col-sm-3 control-label">&#42; School Name</form:label>
                         <div class="col-sm-8">
-                        	<form:select path="school.schoolName" id="schoolId" class="form-control" >
+                        	<form:select path="school.id" id="schoolId" class="form-control" >
                         		<form:option value="">Select</form:option>
                             	<c:forEach var="school" items="${schoolList}">
-                               	<form:option value="${school.schoolName}">${school.schoolName}</form:option>
+                               	<form:option value="${school.id}">${school.schoolName}</form:option>
                         		</c:forEach>
                         	</form:select>
                        </div>
@@ -774,12 +774,12 @@ $(document).ready(function() {
                     </div>
                     
                   	<div class="form-group">
-                        <form:label path="school.schoolName" class="col-sm-3 control-label">&#42; School Name </form:label>
+                        <form:label path="school.id" class="col-sm-3 control-label">&#42; School Name </form:label>
                         <div class="col-sm-8">
-                        	<form:select path="school.schoolName" id="school1" class="form-control" >
+                        	<form:select path="school.id" id="school1" class="form-control" >
                         		<form:option value="">Select</form:option>
                             	<c:forEach var="school" items="${schoolList}">
-                               	<form:option value="${school.schoolName}">${school.schoolName}</form:option>
+                               	<form:option value="${school.id}">${school.schoolName}</form:option>
                         		</c:forEach>
                         	</form:select>
                        </div>

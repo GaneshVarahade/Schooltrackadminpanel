@@ -1,5 +1,8 @@
 package com.fidelit.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +16,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fidelit.model.Blog;
 import com.fidelit.model.ChildProgress;
 import com.fidelit.model.Exam;
 import com.fidelit.model.ExamToSubject;
@@ -362,30 +366,32 @@ public class TeacherController {
 	@RequestMapping(value = "/seeResults")
 	public String seeResults(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
 		int studentId = Integer.parseInt(request.getParameter("studentId"));
-		int []minTotal = new int[10];
-		int []maxTotal = new int[10];
-		int []obtainedMarks= new int[10];
 		List<StudentToExam> ste = teacherService.getStudentToExamByStudentId(studentId);
-		int i=0;
-		int []count= new int[10];
-		for (StudentToExam sTOe : ste){
-			minTotal[i]=sTOe.getSubject1min()+sTOe.getSubject2min()+sTOe.getSubject3min()+sTOe.getSubject4min()+sTOe.getSubject5min()+sTOe.getSubject6min()+sTOe.getSubject7min()+
-					sTOe.getSubject8min()+sTOe.getSubject9min()+sTOe.getSubject10min();
-			maxTotal[i]=sTOe.getSubject1max()+sTOe.getSubject2max()+sTOe.getSubject3max()+sTOe.getSubject4max()+sTOe.getSubject5max()+sTOe.getSubject6max()+sTOe.getSubject7max()+
-					sTOe.getSubject8max()+sTOe.getSubject9max()+sTOe.getSubject10max();
-			obtainedMarks[i]= sTOe.getSubject1obtained()+sTOe.getSubject2obtained()+sTOe.getSubject3obtained()+sTOe.getSubject4obtained()+sTOe.getSubject5obtained()+sTOe.getSubject6obtained()+sTOe.getSubject7obtained()+
-					sTOe.getSubject8obtained()+sTOe.getSubject9obtained()+sTOe.getSubject10obtained();
-			i++;
-		}
-		for(int j=0;j<10;j++){
-			count[j]=i;
-		}
-		model.addAttribute("counts", count);
-		model.addAttribute("obtainedMarks", obtainedMarks);
-		model.addAttribute("maxTotal", maxTotal);
-		model.addAttribute("minTotal", minTotal);
 		model.addAttribute("StudentToExam", ste);
 		return "seeResults";
+	}
+	
+	@RequestMapping(value = "/AddBlog")
+	public String AddBlog(@ModelAttribute("Blog") Blog blog,HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+		String action = null;
+		if(request.getParameter("action")!=null){
+			action=request.getParameter("action");
+		}
+		
+		if(action != null){
+			if(action.trim().equals("Add")){
+				String userName1 = SecurityContextHolder.getContext()
+					.getAuthentication().getName();
+				SchoolAdmin teacher = schoolAdminService.getSchoolAdminByUsername(userName1);
+				blog.setSchoolAdmin(teacher);
+				DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");	       
+				Date dateobj = new Date();
+				
+				blog.setBlogDate(dateobj);
+				teacherService.addBlog(blog);	
+			}	
+		}
+		return "AddBlog";
 	}
 }
 
