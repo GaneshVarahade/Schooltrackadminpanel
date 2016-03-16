@@ -1,6 +1,7 @@
 package com.fidelit.implementation;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -52,11 +53,12 @@ public class AuthenticationImpl implements AuthenticationService{
 		SchoolAdmin account = null;
 		
 		try{
-			session = sessionFactory.getCurrentSession();
-			Criteria criteria = session.createCriteria(SchoolAdmin.class);
-			criteria.add(Restrictions.eq("username", username));
+			 session = sessionFactory.getCurrentSession();
+			String hql = "from SchoolAdmin where username = :accountID";
+			Query query = session.createQuery(hql);
+			query.setString("accountID", username);
 			
-			Object result=criteria.uniqueResult();
+			Object result=query.uniqueResult();
 			account = (SchoolAdmin)result;
 			
 		}catch(Exception e){
