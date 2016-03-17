@@ -23,10 +23,16 @@ function getSubjectNo()
 		var Varmin = "min"+i;
 		var Varmax = "max"+i;
 		html += '<div class="form-group">';
-		html += '<label class="col-sm-3 control-label">* Exam Id :</label>';
+		html += '<label class="col-sm-3 control-label">* Subject Name :</label>';
 		html += '<div class="col-sm-8">';
 		html += '<input type="text" name="'+Varname+'" id="'+Varname+'" value= "" class="form-control" >';
+		html += '</div>';
+		html += '<label class="col-sm-3 control-label">* Min Marks :</label>';
+		html += '<div class="col-sm-8">';
 		html += '<input type="text" name="'+Varmin+'" id="'+Varmin+'" value= "" class="form-control" >';
+		html += '</div>';
+		html += '<label class="col-sm-3 control-label">* Max Marks :</label>';
+		html += '<div class="col-sm-8">';
 		html += '<input type="text" name="'+Varmax+'" id="'+Varmax+'" value= "" class="form-control" >';
 		html += '</div>';
 		html += '</div>';		

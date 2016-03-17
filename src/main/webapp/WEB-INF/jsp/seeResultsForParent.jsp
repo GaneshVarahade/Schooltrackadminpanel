@@ -9,6 +9,7 @@
 <title>Result</title>
 </head>
 <body>
+<c:set var="count" value="0" scope="page" />
 <c:forEach var="ste" items="${StudentToExam}">
 	<div class="form-group">
 		<h3>${ste.exam.examName} </h3>
@@ -104,7 +105,21 @@
           				<td>${ste.subject10obtained}</td>
           				</tr>
           				</c:if>
+          				<tr>
+          				<td><b>Total Marks</b></td>
+          				<td><b>${minTotal[count]}</b></td>
+          				<td><b>${maxTotal[count]}</b></td>
+          				<td><b>${obtainedMarks[count]}</b></td>
+          				</tr>
+          				
+          				<tr>
+          				<td><b>Total Percentage</b></td>
+          				<td><b>Out Of</b></td>
+          				<td><b>${maxTotal[count]}</b></td>
+          				<td><b>${(obtainedMarks[count]*100)/maxTotal[count]}</b></td>
+          				</tr>
          		    </tbody>
+         		    <c:set var="count" value="${count + 1}" scope="page"/>
           		</table>
           		</div>
 			</div>

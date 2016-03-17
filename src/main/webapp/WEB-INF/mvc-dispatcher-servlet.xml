@@ -46,16 +46,16 @@
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="dataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://50.62.22.176:3306/schooltrack"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/schooltrack"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="system"></property>
+		<property name="password" value="root"></property>
 	</bean>
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		id="gtsDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://50.62.22.176:3306/gts"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/gts"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="system"></property>
+		<property name="password" value="root"></property>
 	</bean>
 	<bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
 		id="gtsSessionFactory">

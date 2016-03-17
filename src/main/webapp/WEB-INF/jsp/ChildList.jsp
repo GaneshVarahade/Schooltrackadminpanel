@@ -17,6 +17,11 @@ function seeResults(id){
 	 var id=id;
 		window.location.href="${pageContext.request.contextPath}/Teacher/seeResults?studentId="+id;	
 }
+
+function seeGraphs(id){
+	 var id=id;
+		window.location.href="${pageContext.request.contextPath}/Teacher/seeGraphs?studentId="+id;	
+}
 $(function() {
     $( "#dateFrom" ).datepicker();
 });
@@ -56,6 +61,7 @@ $(function() {
                               	<th width="10%">Name</th>
                               	<th width="10%">City</th>
                                 <th width="10%">Action</th>       
+                                <th width="10%">Action</th>   
                                 <th width="10%">Action</th>              
                             </tr>
                           </thead>
@@ -69,6 +75,7 @@ $(function() {
                     
                      		  <td><button type="submit" class="btn btn-default btn-sm" onClick="addMarks('${schoolAdmin.id}');"><i class="fa fa-pencil-square-o"></i> Add Result</button></td>
                               <td><button type="submit" class="btn btn-default btn-sm" onClick="seeResults('${schoolAdmin.id}');"><i class="fa fa-pencil-square-o"></i> See Result</button></td>
+                              <td><button type="submit" class="btn btn-default btn-sm" onClick="seeGraphs('${schoolAdmin.id}');"><i class="fa fa-pencil-square-o"></i> See Graph</button></td>
                               </tr>
     						</c:forEach>
                       	</tbody>
