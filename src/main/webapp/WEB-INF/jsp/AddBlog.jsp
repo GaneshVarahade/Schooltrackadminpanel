@@ -7,38 +7,67 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+#blogs{
+
+    width: 1330px;
+    margin-left: 503px;
+    margin-top: 190px;
+
+}
+.btn-circle {
+
+  text-align: center;
+  padding: 5px 0;
+  font-size: 20px;
+  line-height: 2.00;
+  border-radius: 30px;
+  
+    width: 91px;
+    height: 60px;
+  
+}
+
+.btn-circle-micro {
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  padding: 1px 0;
+  font-size: 13px;
+  line-height: 0.1;
+  border-radius: 30px;
+}
+
+.btn-circle-sm {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  padding: 2px 0;
+  font-size: 20px;
+  line-height: 1.65;
+  border-radius: 30px;
+}
+
+.btn-circle-lg {
+  width: 79px;
+  height: 79px;
+  text-align: center;
+  padding: 13px 0;
+  font-size: 30px;
+  line-height: 2.00;
+  border-radius: 70px;
+}
+</style>
 </head>
 <body>
+	 
+<div id="blogs">
 
-<form:form id="frm" class="form-horizontal" method="POST" name="frm" action="${pageContext.request.contextPath}/Teacher/AddBlog" commandName="Blog">
-
-     <input type="hidden" name="action" id="action" value="Add">
-
-	<div class="form-group">
-		<form:label path="msg" class="col-sm-3 control-label"> &#42;Message </form:label>
-		<div class="col-sm-8">
-			<form:input type="text" path="msg" id="msg" value=""
-				class="form-control" maxlength="20"
-				 />
-		</div>
-	</div>
-
-	<div class="form-group">
-		<form:label path="studentClass" class="col-sm-3 control-label">&#42; Class </form:label>
-		<div class="col-sm-8">
-			<form:select path="studentClass" id="studentClass" class="form-control" >
-				<form:option value="">Select</form:option>
-
-				<form:option value="1A">1A</form:option>
-				<form:option value="1B">1B</form:option>
-				<form:option value="1B">1C</form:option>
-				<form:option value="1B">1D</form:option>
-				
-			</form:select>
-		</div>
-	</div>
-	
-	<button type="submit" class="btn btn-sky btn-sm" >Save</button>
-	 </form:form>   
+        <a href="${pageContext.request.contextPath}/Teacher/addMessageBlog" data-toggle="modal" data-target="#myModal" class="btn btn-circle btn-default">Message</span></a>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-circle btn-info">File</span></a>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-circle btn-success">Video</span></a>
+ 
+</div> 
 </body>
 </html>

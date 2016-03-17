@@ -432,7 +432,7 @@ public class TeacherController {
 		return "seeResults";
 	}
 	
-	@RequestMapping(value = "/AddBlog")
+	@RequestMapping(value = "/addMesssageBlog")
 	public String AddBlog(@ModelAttribute("Blog") Blog blog,HttpServletRequest request, HttpServletResponse response,ModelMap model) {
 		String action = null;
 		if(request.getParameter("action")!=null){
@@ -444,14 +444,19 @@ public class TeacherController {
 				String userName1 = SecurityContextHolder.getContext()
 					.getAuthentication().getName();
 				SchoolAdmin teacher = schoolAdminService.getSchoolAdminByUsername(userName1);
-				blog.setSchoolAdmin(teacher);
-				DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");	       
+				blog.setSchoolAdmin(teacher);   
 				Date dateobj = new Date();
 				
 				blog.setBlogDate(dateobj);
 				teacherService.addBlog(blog);	
 			}	
 		}
+		return "addMesssageBlog";
+	}
+	
+	@RequestMapping(value = "/AddBlog")
+	public String blog(HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+	
 		return "AddBlog";
 	}
 }
