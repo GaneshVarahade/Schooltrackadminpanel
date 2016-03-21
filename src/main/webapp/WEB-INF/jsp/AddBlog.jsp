@@ -64,9 +64,9 @@
 	 
 <div id="blogs">
 
-        <a href="${pageContext.request.contextPath}/Teacher/addMessageBlog" data-toggle="modal" data-target="#myModal" class="btn btn-circle btn-default">Message</span></a>
-        <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-circle btn-info">File</span></a>
-        <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-circle btn-success">Video</span></a>
+        <a href="${pageContext.request.contextPath}/Teacher/addMessageBlog" data-toggle="modal"  class="btn btn-circle btn-default">Message</span></a>
+        <a href="${pageContext.request.contextPath}/Teacher/addFileBlog"   class="btn btn-circle btn-info">File</span></a>
+        <a href="#aboutModal" data-toggle="modal"  class="btn btn-circle btn-success">Video</span></a>
  
 </div> 
 </body>

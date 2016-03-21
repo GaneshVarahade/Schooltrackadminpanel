@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fidelit.model.Blog;
+import com.fidelit.model.MessageBlog;
 import com.fidelit.model.SchoolAdmin;
 import com.fidelit.model.StudentToExam;
 import com.fidelit.service.ParentService;
@@ -87,7 +87,7 @@ public class ParentController {
 		int studentId = Integer.parseInt(request.getParameter("studentId"));
 		SchoolAdmin student = schoolAdminService.getSchoolAdminId(studentId);
 		String studentClass = student.getStudentClass();
-		List<Blog> blogs = studentService.getBlogsByClass(studentClass);
+		List<MessageBlog> blogs = studentService.getBlogsByClass(studentClass);
 		
 		model.addAttribute("blogs", blogs);
 		return "seeBlogsForParent";

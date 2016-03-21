@@ -117,6 +117,11 @@
         <put-attribute name="body" value="/WEB-INF/jsp/AddBlog.jsp" />  
     </definition>
     
+    <definition name="addFileBlog" extends="teacher.definition">  
+        <put-attribute name="title" value="Admin" />   
+        <put-attribute name="body" value="/WEB-INF/jsp/addFileBlog.jsp" />  
+    </definition>
+    
       <definition name="addMessageBlog" extends="teacher.definition">  
         <put-attribute name="title" value="Admin" />   
         <put-attribute name="body" value="/WEB-INF/jsp/addMessageBlog.jsp" />  

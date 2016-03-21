@@ -15,7 +15,7 @@
 <br>
 <label style="margin-bottom: 0px;"><h5>When : ${blog.blogDate}</h5></label>
 <br>
-<label style="margin-bottom: 0px;"><h5>Message : ${blog.msg}</h5></label>
+<label style="margin-bottom: 0px;"><h5>Message : ${blog.message}</h5></label>
 <hr style="margin-bottom: 0px; margin-top: 0px;">
 </c:forEach>
 </body>

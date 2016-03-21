@@ -12,13 +12,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Blog")
-public class Blog {
+@Table(name="message_blog")
+public class MessageBlog {
 
 	
 	private int blogId;
 	
-	private String msg;
+	private String message;
 	
 	private String studentClass;
 	
@@ -36,11 +36,12 @@ public class Blog {
 	}
 	
 	
-	public String getMsg() {
-		return msg;
+	
+	public String getMessage() {
+		return message;
 	}
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 	@ManyToOne(cascade=CascadeType.ALL)  

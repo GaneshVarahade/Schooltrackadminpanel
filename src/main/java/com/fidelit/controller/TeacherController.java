@@ -1,7 +1,6 @@
 package com.fidelit.controller;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -15,11 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fidelit.model.Blog;
 import com.fidelit.model.ChildProgress;
 import com.fidelit.model.Exam;
 import com.fidelit.model.ExamToSubject;
+import com.fidelit.model.MessageBlog;
 import com.fidelit.model.School;
 import com.fidelit.model.SchoolAdmin;
 import com.fidelit.model.StudentToExam;
@@ -432,8 +432,8 @@ public class TeacherController {
 		return "seeResults";
 	}
 	
-	@RequestMapping(value = "/addMesssageBlog")
-	public String AddBlog(@ModelAttribute("Blog") Blog blog,HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+	@RequestMapping(value = "/addMessageBlog")
+	public String AddBlog(@ModelAttribute("messageBlog") MessageBlog blog,HttpServletRequest request, HttpServletResponse response,ModelMap model) {
 		String action = null;
 		if(request.getParameter("action")!=null){
 			action=request.getParameter("action");
@@ -451,7 +451,10 @@ public class TeacherController {
 				teacherService.addBlog(blog);	
 			}	
 		}
-		return "addMesssageBlog";
+		List<MessageBlog> messageBlogList = teacherService.getMessageBlogList();
+		model.addAttribute("messageBlogList",messageBlogList);
+		model.addAttribute("messageBlog",new MessageBlog());
+	    return "addMessageBlog";
 	}
 	
 	@RequestMapping(value = "/AddBlog")
@@ -459,5 +462,27 @@ public class TeacherController {
 	
 		return "AddBlog";
 	}
-}
+	
 
+	@RequestMapping(value = "/deleteBlogMessageList")
+	public String deleteBlogMessageList(@RequestParam("blogMessageIdList") String str,HttpServletRequest request,ModelMap model){
+		str = str.substring(0, str.length()-1);
+		String[] str1 = str.split(",");
+		
+		for (int i = 0; i < str1.length; i++) {
+			int id = Integer.parseInt(str1[i]);
+			teacherService.deleteBlogMessageById(id);
+		}
+		List<MessageBlog> messageBlogList = teacherService.getMessageBlogList();
+		model.addAttribute("messageBlogList",messageBlogList);
+		model.addAttribute("messageBlog",new MessageBlog());
+		return "addMessageBlog";				
+  }
+
+
+	@RequestMapping(value = "/addFileBlog")
+	public String AddFileBlog(@ModelAttribute("messageBlog") MessageBlog blog,HttpServletRequest request, HttpServletResponse response,ModelMap model) {
+		
+	    return "addFileBlog";
+	}
+}

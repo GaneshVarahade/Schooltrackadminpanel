@@ -75,8 +75,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 		Session session;
 		Employee  employee=null;
 		try{
-			session = sessionFactory.getCurrentSession();
-			Criteria criteria = session.createCriteria(Employee.class);
+			 session = sessionFactory.getCurrentSession();
+			 Criteria criteria = session.createCriteria(Employee.class);
 			 criteria.add(Restrictions.eq("id", id));
 			 Object result=criteria.uniqueResult();
 			 employee = (Employee)result;

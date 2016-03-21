@@ -13,11 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fidelit.model.Blog;
-import com.fidelit.model.Bus;
+import com.fidelit.model.Employee;
 import com.fidelit.model.Exam;
 import com.fidelit.model.ExamToSubject;
-import com.fidelit.model.ParentToStudent;
+import com.fidelit.model.MessageBlog;
 import com.fidelit.model.SchoolAdmin;
 import com.fidelit.model.StudentToExam;
 import com.fidelit.service.TeacherService;
@@ -223,9 +222,30 @@ public class TeacherServiceImpl implements TeacherService {
 
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	@Override
-	public void addBlog(Blog blog) {
+	public void addBlog(MessageBlog blog) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(blog);
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Override
+	public List<MessageBlog> getMessageBlogList() {
+		Session session = sessionFactory.getCurrentSession();
+		Criteria creteria = session.createCriteria(MessageBlog.class);
+		List<MessageBlog> messageBlog = creteria.list();
+		
+		return messageBlog;
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	@Override
+	public void deleteBlogMessageById(int id) {
+		 Session session = sessionFactory.getCurrentSession();
+		 Criteria criteria = session.createCriteria(MessageBlog.class);
+		 criteria.add(Restrictions.eq("id", id));
+		 Object result=criteria.uniqueResult();
+		 MessageBlog messageBlog = (MessageBlog)result;
+		 session.delete(messageBlog);
 	}
 
 	 

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fidelit.model.Blog;
+import com.fidelit.model.MessageBlog;
 import com.fidelit.model.SchoolAdmin;
 import com.fidelit.model.StudentToExam;
 import com.fidelit.service.SchoolAdminService;
@@ -43,7 +43,7 @@ public class StudentController {
 				.getAuthentication().getName();
 		SchoolAdmin student = schoolAdminService.getSchoolAdminByUsername(userName1);
 		String studentClass = student.getStudentClass();
-		List<Blog> blogs = studentService.getBlogsByClass(studentClass);
+		List<MessageBlog> blogs = studentService.getBlogsByClass(studentClass);
 		
 		model.addAttribute("blogs", blogs);
 		return "seeBlogs";

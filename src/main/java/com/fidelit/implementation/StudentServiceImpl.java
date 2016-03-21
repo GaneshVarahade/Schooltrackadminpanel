@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.fidelit.model.Blog;
-
+import com.fidelit.model.MessageBlog;
 import com.fidelit.service.StudentService;
 
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true) 
@@ -25,9 +23,9 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true) 
 	@Override
-	public List<Blog> getBlogsByClass(String studentclass) {
+	public List<MessageBlog> getBlogsByClass(String studentclass) {
 		Session session;
-		List<Blog>  blogList = new ArrayList<Blog>();
+		List<MessageBlog>  blogList = new ArrayList<MessageBlog>();
 		try{
 			session = sessionFactory.openSession();
 			String hql = "from Blog where studentClass = :studentclass";
